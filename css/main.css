@@ -119,10 +119,11 @@ p.copyright {
 	border: 1px solid #aaa;
 	border-top: 2px solid #aaa;
 	border-left: 2px solid #aaa;
+	background: #ccc;
 }
 
 .ccd .pixel {
-	stroke: #aaa;
+	stroke: none;
 	fill: steelblue;
 }
 
