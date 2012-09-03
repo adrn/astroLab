@@ -61,13 +61,31 @@ p.copyright {
 	margin-right: 50px;
 }
 
-.rightCol p {
+.rightCol .explanation {
+	display: none;
+}
+
+.rightCol h2 {
+	font: 20px/100% helvetica, arial, sans-serif;
+	color: #72A6C0;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #aaa;
+	margin: 40px 0 20px 0;
+}
+
+.wrapper p {
 	font: 15px/130% "Paladino-Linotype", times, serif;
 	color: #444;
+	max-width: 500px;
+	padding-bottom: 20px;
+}
+
+.wrapper p.intro {
+	margin-left: 50px;
 }
 
 .controls {
-	margin: 20px 0;
+	margin: 0 0 20px 0;
 }
 
 .controls a {

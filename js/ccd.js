@@ -48,11 +48,14 @@ function random(){
 function ccd(){
 
 	$('.controls a').click( function(evt){
+
 		evt.preventDefault();
 		$('.controls a').removeClass('current');
 		$(this).addClass('current');
+		$('.rightCol .explanation').hide();
 
 		id = $(this).attr('id');
+		$('#'+ id + '_par').fadeIn(500);
 
 		if( id == "noise" ){	
 			$('.pixel').each( function(){
