@@ -1,0 +1,113 @@
+/* reset styles */
+
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+ padding: 0;
+ margin: 0;
+ font-size: 100%;
+ font-weight: normal;
+}
+table { border-collapse: collapse; border-spacing: 0; }
+td, th, caption { font-weight: normal; text-align: left;}
+img, fieldset { border: 0; }
+ol { padding-left: 1.4em; list-style: decimal; }
+ ul { padding:0; margin: 0; list-style: none; }
+q:before, q:after { content:''; }
+
+
+html { font: 62.5% sans-serif;}
+
+/* end reset */
+
+body {
+	background: #fff;
+}
+
+.wrapper {
+	width: 960px;
+	background: #fff;
+	margin: 0 auto;
+	padding: 10px;
+	border: 1px solid #72A6C0;
+	border-top: none;
+	min-height: 600px;
+}
+
+p.copyright {
+	font: 12px/100% helvetica, arial, sans-serif;
+	color: #fff;
+	background: #72A6C0;
+	width: 972px;
+	padding: 5px;
+	margin-bottom: 20px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.wrapper h1 {
+	font: 30px/100% helvetica, arial, sans-serif;
+	font-weight: bold;
+	color: #72A6C0;
+	width: 500px;
+	padding-top: 10px;
+	padding-bottom: 1px;
+	border-bottom: 1px solid #aaa;
+	margin-bottom: 20px;
+}
+
+.rightCol {
+	width: 280px;
+	float: right;
+	zoom: 1;	
+	margin-right: 50px;
+}
+
+.rightCol p {
+	font: 15px/130% "Paladino-Linotype", times, serif;
+	color: #444;
+}
+
+.controls {
+	margin: 20px 0;
+}
+
+.controls a {
+	font: 14px/100% helvetica, arial, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+	padding: 7px 0;
+	margin: 5px 0;
+	border: 1px solid steelblue;
+	color: steelblue;
+	width: 150px;
+	text-align: center;
+}
+
+.controls a:hover {
+	background: steelblue;
+	color: #fff;
+}
+
+.controls a.current,
+.controls a.current:hover {
+	background: #222;
+	color: #fff;
+	border-color: #222;
+}
+
+.ccd {
+	width: 600px;
+	height: 600px;
+	border: 1px solid #aaa;
+	border-top: 2px solid #aaa;
+	border-left: 2px solid #aaa;
+}
+
+.ccd .pixel {
+	stroke: #aaa;
+	fill: steelblue;
+}
+
+br {
+	clear: both;
+}
