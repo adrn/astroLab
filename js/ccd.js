@@ -26,6 +26,16 @@ function d2h(n){
 	return 'f';
 }// end d2h
 
+/*
+ *	D2HH
+ *		Coverts # between 0 - 255 to a hex pattern, 00 - ff
+ */
+function d2hh(n){
+	n1 = n%16;
+	n2 = Math.floor(n/16);
+	return d2h(n2) + d2h(n1);
+}
+
 
 /*
  *	RANDOM
@@ -41,11 +51,45 @@ function random(){
 	return color;	
 }// end random
 
+
+/*
+ *	PAINT
+ *		Given an 2D array of integers, paints the ccd display
+ *	squares (greyscale)
+ */
+function paint(CCD){
+	$('.pixel').each( function(){
+		i = $(this).attr('i');
+		j = $(this).attr('j');
+		color = d2hh(CCD[i][j]);
+		color = "#"+color+color+color;
+		$(this).css('fill',color);
+	});
+}
+
+/*
+ *	UNIFORM
+ */
+function uniform(CCD,val){
+	nRows = CCD.length;
+	nCols = CCD[0].length;
+	for(i=0;i<nRows;i++)
+		for(j=0;j<nRows;j++)
+			CCD[i][j] = val;
+}
+
 /*
  *	MAIN FCN
  * 		Gives each CCD control link its action
  */
-function ccd(){
+function ccd(CCD){
+
+	var nRows = CCD.length;
+	var nCols = 0;
+	if( nRows > 0 )
+		nCols = CCD[0].length;
+	
+	var im = Math.floor(nRows/2),jm=Math.floor(nCols/2);
 
 	$('.controls a').click( function(evt){
 
@@ -58,13 +102,15 @@ function ccd(){
 		$('#'+ id + '_par').fadeIn(500);
 
 		if( id == "noise" ){	
-			$('.pixel').each( function(){
-				$(this).css('fill',random() );
-			});
-		} else if( id == "star" ){	
-			$('.pixel').each( function(){ $(this).css('fill',"#000"); });
-			$('#pixel_' + ((nRows*nCols)/2)).css('fill','#fff');
-		} else if( id == "extended" ){
+			for( i = 0 ; i < nRows ; i++ )
+				for( j = 0 ; j < nCols ; j++ )
+					CCD[i][j] = Math.floor(Math.random()*256);
+			paint(CCD);
+		} else if( id == "star" ){
+			uniform(CCD,0);
+			CCD[im][jm] = 255;
+			paint(CCD);
+		} else if( id == "extended" ){		// FIXME!
 			cntr = 300.0;
 			scale = 8000.0;
 			$('.pixel').each( function(){
@@ -76,10 +122,12 @@ function ccd(){
 				if( amp > 255 ) amp = 255;
 				$(this).css('fill',"rgb(" + amp + "," + amp + "," + amp + ")" );
 			});// end pixel each
-		} else if( id == "white" ){ 
-			$('.pixel').each( function(){ $(this).css('fill',"#fff"); });
+		} else if( id == "white" ){
+			uniform(CCD,255);
+			paint(CCD); 
 		} else if( id == "black" ){
-			$('.pixel').each( function(){ $(this).css('fill',"#000"); });
+			uniform(CCD,0);
+			paint(CCD);
 		} // end case if/else
 
 	}); // end controls click fcn
@@ -87,7 +135,8 @@ function ccd(){
 
 	// testing click fcn in SVG
 	$('.pixel').click( function(){
-		$(this).css('fill',"#f70");
+		$(this).css('fill',"#F70");
+		alert( "Row: " + $(this).attr('i') + ", Col: " + $(this).attr('j') );
 	});
 
 } // end ccd
