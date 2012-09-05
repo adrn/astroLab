@@ -108,11 +108,11 @@
 	<svg class="ccd">
 <?php
 
-	$nRows = 24;
-	$nCols = 24;
+	$nRows = 30;
+	$nCols = 30;
 
-	$width = 24;
-	$height = 24;
+	$width = 19;
+	$height = 19;
 
 
 	for( $i = 0 ; $i < $nRows ; $i++ ){

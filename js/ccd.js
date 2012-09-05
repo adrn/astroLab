@@ -84,4 +84,10 @@ function ccd(){
 
 	}); // end controls click fcn
 
+
+	// testing click fcn in SVG
+	$('.pixel').click( function(){
+		$(this).css('fill',"#f70");
+	});
+
 } // end ccd
