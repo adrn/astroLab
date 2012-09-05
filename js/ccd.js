@@ -9,10 +9,8 @@
  *		their colors to mimic various sources
  */
 
-/*
- *	D2H
- *		Converts number between 0 - 15 to hex character
- */
+//	D2H
+//		Converts number between 0 - 15 to hex character
 function d2h(n){
 	if( n < 10 ) return n.toString();
 	if( n == 10 ) return 'a';
@@ -23,21 +21,17 @@ function d2h(n){
 	return 'f';
 }// end d2h
 
-/*
- *	D2HH
- *		Coverts # between 0 - 255 to a hex pattern, 00 - ff
- */
+//	D2HH
+//		Coverts # between 0 - 255 to a hex pattern, 00 - ff
 function d2hh(n){
 	n1 = n%16;
 	n2 = Math.floor(n/16);
 	return d2h(n2) + d2h(n1);
 }
 
-/*
- *	PAINT
- *		Given an 2D array of integers, paints the ccd display
- *	squares (greyscale)
- */
+//	PAINT
+//		Given an 2D array of integers, paints the ccd display
+//	squares (greyscale)
 function paint(CCD){
 	$('.pixel').each( function(){
 		i = $(this).attr('i');
@@ -48,9 +42,8 @@ function paint(CCD){
 	});
 }
 
-/*
- *	UNIFORM
- */
+//	UNIFORM
+//		Fills CCD array with 1 # value
 function uniform(CCD,val){
 	nRows = CCD.length;
 	nCols = CCD[0].length;
@@ -59,17 +52,13 @@ function uniform(CCD,val){
 			CCD[i][j] = val;
 }
 
-/*
- *	MAIN FCN
- * 		Gives each CCD control link its action
- */
+// MAIN FUNCTION
 function ccd(CCD){
 
 	var nRows = CCD.length;
 	var nCols = 0;
 	if( nRows > 0 )
 		nCols = CCD[0].length;
-	
 	var im = Math.floor(nRows/2),jm=Math.floor(nCols/2);
 
 	$('.controls a').click( function(evt){
