@@ -9,9 +9,6 @@
  *		their colors to mimic various sources
  */
 
-var nRows = 24;
-var nCols = 25;
-
 /*
  *	D2H
  *		Converts number between 0 - 15 to hex character
@@ -35,22 +32,6 @@ function d2hh(n){
 	n2 = Math.floor(n/16);
 	return d2h(n2) + d2h(n1);
 }
-
-
-/*
- *	RANDOM
- *		Produces random greyscale hex color, 
- *	from #ffffff -> #000000
- */
-function random(){
-	color = "#";
-	n = d2h((Math.floor(Math.random()*16)))
-	    + d2h((Math.floor(Math.random()*16)));
-	for(i = 0 ; i < 3 ; i++ )
-		color += n;
-	return color;	
-}// end random
-
 
 /*
  *	PAINT
