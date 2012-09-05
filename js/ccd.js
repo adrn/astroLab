@@ -52,6 +52,22 @@ function uniform(CCD,val){
 			CCD[i][j] = val;
 }
 
+// ADD STAR
+//		Adds fuzzy source emanating from given cntr
+function addStar(CCD,istar,jstar){
+	nRows = CCD.length;
+	nCols = CCD[0].length;
+	for( i = 0 ; i < nRows ; i++ )
+		for( j = 0 ; j < nCols ; j++ ){
+        dx = i - istar;
+				dy = j - jstar;
+				r = Math.sqrt(dx*dx+dy*dy);
+				amp = Math.floor(200/(r+1)) + CCD[i][j];
+				if( amp > 255 ) CCD[i][j] = 255;
+				else CCD[i][j] = amp;
+		} // end j for
+}
+
 // MAIN FUNCTION
 function ccd(CCD){
 
@@ -71,42 +87,41 @@ function ccd(CCD){
 		id = $(this).attr('id');
 		$('#'+ id + '_par').fadeIn(500);
 
+		// Update CCD array by case ...
 		if( id == "noise" ){	
 			for( i = 0 ; i < nRows ; i++ )
 				for( j = 0 ; j < nCols ; j++ )
 					CCD[i][j] = Math.floor(Math.random()*256);
-			paint(CCD);
 		} else if( id == "star" ){
 			uniform(CCD,0);
-			CCD[im][jm] = 255;
-			paint(CCD);
-		} else if( id == "extended" ){		// FIXME!
-			cntr = 300.0;
-			scale = 8000.0;
-			$('.pixel').each( function(){
-				dx = parseFloat($(this).attr('x')) - cntr;
-				dy = parseFloat($(this).attr('y')) - cntr;
-				r = Math.sqrt(dx*dx+dy*dy);
-				amp = 1.0/(r+10.0)*scale;
-				amp = Math.floor(amp); 
-				if( amp > 255 ) amp = 255;
-				$(this).css('fill',"rgb(" + amp + "," + amp + "," + amp + ")" );
-			});// end pixel each
+			addStar(CCD,im,jm);
+			addStar(CCD,im,jm);
+		} else if( id == "extended" ){
+			uniform(CCD,0);
+			addStar(CCD,im,jm);
+			addStar(CCD,im+1,jm);
+			addStar(CCD,im-1,jm);
+			addStar(CCD,im-2,jm);
+			addStar(CCD,im-3,jm);
+			addStar(CCD,im+3,jm);
 		} else if( id == "white" ){
 			uniform(CCD,255);
-			paint(CCD); 
 		} else if( id == "black" ){
 			uniform(CCD,0);
-			paint(CCD);
 		} // end case if/else
+
+		// update display
+		paint(CCD);
 
 	}); // end controls click fcn
 
 
-	// testing click fcn in SVG
+	// Produce a star upon clicking ...
 	$('.pixel').click( function(){
-		$(this).css('fill',"#F70");
-		alert( "Row: " + $(this).attr('i') + ", Col: " + $(this).attr('j') );
+		i = parseInt($(this).attr('i'));
+		j = parseInt($(this).attr('j'));
+		addStar(CCD,i,j);
+		paint(CCD);
 	});
 
 } // end ccd
