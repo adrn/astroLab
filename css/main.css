@@ -130,3 +130,24 @@ p.copyright {
 br {
 	clear: both;
 }
+
+.wrapper .topNav {
+	background: steelblue;
+}
+
+.wrapper .topNav a {
+	float: left;
+	zoom: 1;
+	width: 150px;
+	text-align: center;
+	display: block;
+	padding: 5px 0;
+	color: #fff;
+	font: 14px/100% helvetica, arial, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.wrapper .topNav a:hover {
+	background: #333;
+}
