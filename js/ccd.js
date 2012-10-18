@@ -9,6 +9,33 @@
  *		their colors to mimic various sources
  */
 
+// ccd 
+//		CCD object
+function ccd(nRows,nCols){
+
+	this.nRows = nRows;
+	this.nCols = nCols;
+
+	// initialize signal array
+  this.signal = new Array(nRows);
+	for( i = 0 ; i < nRows ; i++ )
+		this.signal[i] = Array(nCols);
+	
+	// initialize noise array
+	this.noise = new Array(nRows);
+	for( i = 0 ; i < nRows ; i++ )
+		this.noise[i] = Array(nCols);
+
+	this.addNoise = addNoise;
+	function addNoise(n){
+		for( i = 0 ; i < this.nRows ; i++ )
+			for( j = 0 ; j < this.nCols ; j++ )
+				this.noise[i][j] = Math.floor(Math.random()*n*25.6);
+		paint(this);
+	}
+
+} 
+
 //	D2H
 //		Converts number between 0 - 15 to hex character
 function d2h(n){
@@ -24,6 +51,7 @@ function d2h(n){
 //	D2HH
 //		Coverts # between 0 - 255 to a hex pattern, 00 - ff
 function d2hh(n){
+	if( n > 255 ) n = 255;
 	n1 = n%16;
 	n2 = Math.floor(n/16);
 	return d2h(n2) + d2h(n1);
@@ -36,7 +64,7 @@ function paint(CCD){
 	$('.pixel').each( function(){
 		i = $(this).attr('i');
 		j = $(this).attr('j');
-		color = d2hh(CCD[i][j]);
+		color = d2hh(CCD.signal[i][j] + CCD.noise[i][j]);
 		color = "#"+color+color+color;
 		$(this).css('fill',color);
 	});
@@ -45,37 +73,31 @@ function paint(CCD){
 //	UNIFORM
 //		Fills CCD array with 1 # value
 function uniform(CCD,val){
-	nRows = CCD.length;
-	nCols = CCD[0].length;
-	for(i=0;i<nRows;i++)
-		for(j=0;j<nRows;j++)
-			CCD[i][j] = val;
-}
+	for(i=0;i<CCD.nRows;i++)
+		for(j=0;j<CCD.nCols;j++){
+			CCD.signal[i][j] = val;
+			CCD.noise[i][j] = 0.0;
+		} // end j for
+} // end uniform
 
 // ADD STAR
 //		Adds fuzzy source emanating from given cntr
 function addStar(CCD,istar,jstar){
-	nRows = CCD.length;
-	nCols = CCD[0].length;
-	for( i = 0 ; i < nRows ; i++ )
-		for( j = 0 ; j < nCols ; j++ ){
+	for( i = 0 ; i < CCD.nRows ; i++ )
+		for( j = 0 ; j < CCD.nCols ; j++ ){
         dx = i - istar;
 				dy = j - jstar;
 				r = Math.sqrt(dx*dx+dy*dy);
-				amp = Math.floor(200/(r+1)) + CCD[i][j];
-				if( amp > 255 ) CCD[i][j] = 255;
-				else CCD[i][j] = amp;
+				amp = Math.floor(200/(r+1)) + CCD.signal[i][j];
+				if( amp > 255 ) CCD.signal[i][j] = 255;
+				else CCD.signal[i][j] = amp;
 		} // end j for
 }
 
 // MAIN FUNCTION
-function ccd(CCD){
+function initialize_ccd(CCD){
 
-	var nRows = CCD.length;
-	var nCols = 0;
-	if( nRows > 0 )
-		nCols = CCD[0].length;
-	var im = Math.floor(nRows/2),jm=Math.floor(nCols/2);
+	var im = Math.floor(CCD.nRows/2),jm=Math.floor(CCD.nCols/2);
 
 	$('.controls a').click( function(evt){
 
@@ -89,9 +111,11 @@ function ccd(CCD){
 
 		// Update CCD array by case ...
 		if( id == "noise" ){	
-			for( i = 0 ; i < nRows ; i++ )
-				for( j = 0 ; j < nCols ; j++ )
-					CCD[i][j] = Math.floor(Math.random()*256);
+			for( i = 0 ; i < CCD.nRows ; i++ )
+				for( j = 0 ; j < CCD.nCols ; j++ ){
+					CCD.noise[i][j] = Math.floor(Math.random()*256);
+					CCD.signal[i][j] = 0.0;
+				}
 		} else if( id == "star" ){
 			uniform(CCD,0);
 			addStar(CCD,im,jm);

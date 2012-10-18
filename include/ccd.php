@@ -1,5 +1,43 @@
 <?php
 	function ccd($nRows,$nCols,$width,$height){
+
+	echo "
+	<script type=\"text/javascript\">$(document).ready( function(){ 
+		var nRows = 30, nCols = 30;
+
+		// initialize CCD array
+		var CCD  = new ccd(nRows,nCols);
+
+		// zero it out
+		for( i = 0 ; i < nRows ; i++ )
+			for( j = 0 ; j < nCols ; j++ ){
+				CCD.signal[i][j] = 0;
+				CCD.noise[i][j] = 0;
+			}
+
+		// build display / controls
+		initialize_ccd(CCD);
+
+
+  function slideAction() {
+    var noiseLev = $('#noiseSlider').slider(\"value\");
+    CCD.addNoise(noiseLev);
+  }
+
+  $(\".slider\").slider({
+    orientation: \"horizontal\",
+    range: \"min\",
+    max: 10,
+    value: 5,
+    slide: slideAction,
+    change: slideAction
+  });
+
+
+ 
+  });</script>\n";
+
+
 		echo "\t<svg class=\"ccd\">\n";
 		for( $i = 0 ; $i < $nRows ; $i++ ){
 			for( $j = 0 ; $j < $nCols ; $j++ ){

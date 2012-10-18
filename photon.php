@@ -1,92 +1,21 @@
 <?php include("include/header.php");?>
 	<h1>Photon Counts</h1>
 
-	<p class="intro"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-			sed do eiusmod tempor incididunt ut labore et dolore magna
-			aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-			ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	<p class="intro"> In essence, the CCD is simply an array where each cell is called a "pixel."  The more cells or pixels you have, the higher the resolution.  So a 10 megapixel camera has 10 million pixels. </p>
+	<p class="intro"> Each cell counts how many photons hit it. This count of the number of photons is then the brightness of your object at that pixel. So the more photons, the brighter the object at that pixel and the higher count that pixel has.</p>
+	<p class="intro"> Click on the pixels of your screen to see an animation of how this works. Then answer the questions.</p>
 
 	<div class="rightCol">
 
 		<ul class="controls">
-			<li><a href="" id="black">Underexposed</a></li>
-			<li><a href="" id="white">Overexposed</a></li>
-			<li><a href="" id="noise">White Noise</a></li>
-			<li><a href="" id="star">Star</a></li>
-			<li><a href="" id="extended">Extended Source</a></li>
+			<li><a href="" id="black">RESET</a></li>
+			<li><a href="" id="questions">Questions</a></li>
 		</ul>
 
-		<div id="black_par" class="explanation">
-			<h2>Under Exposed</h2>
-			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-					sed do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-					ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-	
-			<p> Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-					cupidatat non proident, sunt in culpa qui officia deserunt mollit
-					anim id est laborum.</p>
-		</div>
-		<div id="white_par" class="explanation">
-		  <h2>Over Exposed</h2>
-		  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-		      sed do eiusmod tempor incididunt ut labore et dolore magna
-		      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-		      ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-		  <p> Duis aute irure dolor in reprehenderit in voluptate velit esse
-		      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-		      cupidatat non proident, sunt in culpa qui officia deserunt mollit
-		      anim id est laborum.</p>
-		</div>
-		<div id="noise_par" class="explanation">
-		  <h2>White Noise</h2>
-		  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-		      sed do eiusmod tempor incididunt ut labore et dolore magna
-		      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-		      ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-		  <p> Duis aute irure dolor in reprehenderit in voluptate velit esse
-		      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-		      cupidatat non proident, sunt in culpa qui officia deserunt mollit
-		      anim id est laborum.</p>
-		</div>
-		<div id="star_par" class="explanation">
-		  <h2>A Star (unresolved source)</h2>
-		  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-		      sed do eiusmod tempor incididunt ut labore et dolore magna
-		      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-		      ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-		  <p> Duis aute irure dolor in reprehenderit in voluptate velit esse
-		      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-		      cupidatat non proident, sunt in culpa qui officia deserunt mollit
-		      anim id est laborum.</p>
-		</div>
-		<div id="extended_par" class="explanation">
-		  <h2>Extended Source (resolved)</h2>
-		  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-		      sed do eiusmod tempor incididunt ut labore et dolore magna
-		      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-		      ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-		  <p> Duis aute irure dolor in reprehenderit in voluptate velit esse
-		      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-		      cupidatat non proident, sunt in culpa qui officia deserunt mollit
-		      anim id est laborum.</p>
-		</div>
-		<div id="black_par" class="explanation">
-		  <h2>Under Exposed</h2>
-		  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-		      sed do eiusmod tempor incididunt ut labore et dolore magna
-		      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-		      ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-		  <p> Duis aute irure dolor in reprehenderit in voluptate velit esse
-		      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-		      cupidatat non proident, sunt in culpa qui officia deserunt mollit
-		      anim id est laborum.</p>
+		<div id="questions_par" class="explanation">
+			<h2>Questions</h2>
+			<p> <strong>1</strong> Does having more pixels mean higher or lower resolution for your image? Explain your answer.</p>
+			<p> <strong>2</strong>  When looking at the sky, do you expect most of your pixels to have counts or not? What about when you take a picture of your friends? What's the difference?</p> 
 		</div>
 
 
