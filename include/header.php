@@ -1,5 +1,8 @@
 <?php 
-	include("include/ccd.php"); 
+	if(isset($color))
+		include("include/color_ccd.php"); 
+	else
+		include("include/ccd.php"); 
 	include("include/slider.php");
 ?>
 <html>
@@ -11,7 +14,10 @@
 
 	<script type="text/javascript" src="http://www.astro.columbia.edu/~msalem/ccd/js/jquery-1.8.2.js"></script>
 	<script type="text/javascript" src="http://www.astro.columbia.edu/~msalem/ccd/js/jquery-ui-1.9.0.min.js"></script>
-	<script type="text/javascript" src="http://www.astro.columbia.edu/~msalem/ccd/js/ccd.js"></script>
+<?php
+	if(!isset($color))
+		echo "<script type=\"text/javascript\" src=\"http://www.astro.columbia.edu/~msalem/ccd/js/ccd.js\"></script>\n";
+?>
 </head>
 
 <body>
