@@ -1,5 +1,5 @@
 <?php
-	function ccd($nRows,$nCols,$width,$height){
+	function ccd($nRows,$nCols,$width,$height,$extended="false"){
 
 	echo "
 	<script type=\"text/javascript\">$(document).ready( function(){ 
@@ -16,7 +16,7 @@
 			}
 
 		// build display / controls
-		initialize_ccd(CCD);
+		initialize_ccd(CCD,$extended);
 
 
   function slideAction() {

@@ -1,6 +1,8 @@
 <?php 
 	if(isset($color))
 		include("include/color_ccd.php"); 
+	else if(isset($photon))
+		;
 	else
 		include("include/ccd.php"); 
 	include("include/slider.php");

@@ -95,7 +95,7 @@ function addStar(CCD,istar,jstar){
 }
 
 // MAIN FUNCTION
-function initialize_ccd(CCD){
+function initialize_ccd(CCD,ext){
 
 	var im = Math.floor(CCD.nRows/2),jm=Math.floor(CCD.nCols/2);
 
@@ -147,5 +147,18 @@ function initialize_ccd(CCD){
 		addStar(CCD,i,j);
 		paint(CCD);
 	});
+
+	// Make extended source
+	if(ext){
+		uniform(CCD,0);
+		addStar(CCD,im,jm);
+		addStar(CCD,im+1,jm);
+		addStar(CCD,im-1,jm);
+		addStar(CCD,im-2,jm);
+		addStar(CCD,im-3,jm);
+		addStar(CCD,im+3,jm);
+	
+		paint(CCD);
+	} // end ext if
 
 } // end ccd

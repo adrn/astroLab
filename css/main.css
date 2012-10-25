@@ -65,6 +65,10 @@ p.copyright {
 	display: none;
 }
 
+.rightCol .explanation.on {
+	display: block;
+}
+
 .rightCol h2 {
 	font: 20px/100% helvetica, arial, sans-serif;
 	color: #72A6C0;

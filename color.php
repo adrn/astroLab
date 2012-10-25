@@ -5,15 +5,17 @@
 
 	<h1>Color CCDs</h1>
 
-	<p class="intro"> Each photon that comes in registers a count on one of the pixels. However, stars, which are considered single points of light, occupy more than one pixel on the CCD.</p>	
+	<p class="intro"> So far, all we've talked about is a nondescript photon hitting the CCD.  Everyone we've mentioned works for visible light of any color.  So how do we take color images?</p>
+<p class="intro">In the next section of the lab, we'll talk about how astronomers get color information about the universe using filters.  However, for some CCDs, like the ones in your digital cameras and phones, are designed to automatically receive color information with built in filters.</p>
+<p class="intro">	For these cameras, each pixel of the CCD only counts photons if they're the correct color.  Generally, this is split into red, green and blue light.  Then, after reading out the information, the camera creates a color image by summing the information about the amount of each color of light there was at each pixel.  So really your color image is the sum of three separate images.</p>
+<p class="intro">The general mosaic scheme for the different color images is displayed on this page.</p>
+<p class="intro">Each photon that comes in registers a count on one of the pixels. However, stars, which are considered single points of light, occupy more than one pixel on the CCD.</p>	
 
 	<div class="rightCol">
 
-		<div id="questions_par" class="explanation">
+		<div id="questions_par" class="explanation on">
 		  <h2>Questions</h2>
-		  <p><strong>1</strong> Astronomers always try to have their sources in the center of the CCD.  Why is this better than having them closer to the edge?</p>
-			<p><strong>2</strong> Reset the page and click on two pixels that are 2 spaces apart.  What happens when these two different sources are so close to each other on the CCD? With this in mind, if you wanted to resolve two stars that were close to each other, how high would you want your resolution to be?</p>
-			<p><strong>3</strong> Something on over exposure ... </p>
+		  <p><strong>1</strong> Is it a problem that only one fourth of your everyday camera detects red light? Why or why not? What about if we used this method of assigning colors to each pixel in astronomy?</p>
 		</div>
 	</div>
 
@@ -21,10 +23,6 @@
 	.ccd .pixel.red   { fill: #ff0000; }	
 	.ccd .pixel.green { fill: #00ff00; }	
 	.ccd .pixel.blue  { fill: #0000ff; }	
-
-	.explanation {
-		display: block !important;
-	}
 </style>
 
 <?php
