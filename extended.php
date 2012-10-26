@@ -4,17 +4,18 @@
 
 	<h1>Extended Sources</h1>
 
-	<p class="intro"> Extended Source
-Often times, astronomers want to observe not just point sources like stars, but extended sources like galaxies and nebulae.  For these objects, the brightness is spread over many pixels, not just because of the instruments but because of the physical size of the objects.</p> 
-
 	<div class="rightCol">
+		<div class="scroll-holder">
+		<div class="scroll-pane">
+			<div class="explanation">
+				<p> Often times, astronomers want to observe not just point sources like 
+						stars, but extended sources like galaxies and nebulae.  For these 
+						objects, the brightness is spread over many pixels, not just because 
+						of the instruments but because of the physical size of the objects.</p> 
 
-		
-		<div id="questions_par" class="explanation on">
 		  <h2>Questions</h2>
-		</div>
-
-		
+			</div>
+		</div></div>
 	</div>
 
 <?php

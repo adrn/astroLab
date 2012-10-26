@@ -133,18 +133,6 @@ function initialize_ccd(CCD,ext){
 		shiftOver(CCD,0);
 	});
 
-	$('.controls a').click( function(evt){
-
-		evt.preventDefault();
-		$('.controls a').removeClass('current');
-		$(this).addClass('current');
-		$('.rightCol .explanation').hide();
-
-		id = $(this).attr('id');
-		$('#'+ id + '_par').fadeIn(500);
-
-	}); // end controls click fcn
-
 	$('.pixel').click( function(){
 			i = parseInt($(this).attr('i'));
 			j = parseInt($(this).attr('j'));

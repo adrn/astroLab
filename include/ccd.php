@@ -3,6 +3,12 @@
 
 	echo "
 	<script type=\"text/javascript\">$(document).ready( function(){ 
+
+
+		
+		// J-scrollpane:
+		$('.scroll-pane').jScrollPane({ hideFocus: true});
+
 		var nRows = 30, nCols = 30;
 
 		// initialize CCD array

@@ -13,9 +13,12 @@
 	<title>CCD Lab</title>
 	<link type="text/css" rel="stylesheet" href="http://astro.columbia.edu/~msalem/ccd/css/jquery-ui-1.9.0.min.css" />
 	<link type="text/css" rel="stylesheet" href="http://astro.columbia.edu/~msalem/ccd/css/main.css" />
+	<link type="text/css" rel="stylesheet" href="http://astro.columbia.edu/~msalem/ccd/css/jquery.jscrollpane.css" />
 
 	<script type="text/javascript" src="http://www.astro.columbia.edu/~msalem/ccd/js/jquery-1.8.2.js"></script>
 	<script type="text/javascript" src="http://www.astro.columbia.edu/~msalem/ccd/js/jquery-ui-1.9.0.min.js"></script>
+	<script type="text/javascript" src="http://www.astro.columbia.edu/~msalem/ccd/js/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="http://www.astro.columbia.edu/~msalem/ccd/js/jquery.jscrollpane.min.js"></script>
 <?php
 	if(!isset($color))
 		echo "<script type=\"text/javascript\" src=\"http://www.astro.columbia.edu/~msalem/ccd/js/ccd.js\"></script>\n";
