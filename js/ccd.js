@@ -130,7 +130,7 @@ function initialize_ccd(CCD,ext){
 
 	$('#shift').click(function(evt){
 		evt.preventDefault();
-		shiftDown(CCD);
+		shiftOver(CCD,0);
 	});
 
 	$('.controls a').click( function(evt){
@@ -171,10 +171,10 @@ function initialize_ccd(CCD,ext){
 } // end ccd
 
 function shiftDown(CCD){
-	shiftOver(CCD,0);
-	for(i = CCD.nRows - 1; i > 0 ; i-- )
+	ib = CCD.nRows - 1;
+	for(i = ib; i > 0 ; i-- )
 		for(j = 0 ; j < CCD.nCols ; j++ )
-			if( CCD.signal[i][j] != -1 ){
+			if( CCD.signal[i][j] != -1 || i == ib ){
 				CCD.signal[i][j] = CCD.signal[i-1][j];
 				CCD.noise[i][j] = CCD.noise[i-1][j];
 			}
@@ -185,8 +185,10 @@ function shiftDown(CCD){
 
 function shiftOver(CCD,n){
 	var i = CCD.nRows - 1;
-	if( n == CCD.nCols )
+	if( n > CCD.nCols ){
+		shiftDown(CCD);
 		return;
+	}
 	for( j = CCD.nCols - 1 ; j > 0 ; j-- )
 		if( CCD.signal[i][j] != -1 ) {
 			CCD.signal[i][j] = CCD.signal[i][j-1];
@@ -195,5 +197,7 @@ function shiftOver(CCD,n){
 	if( CCD.signal[i][0] != -1 )
 		CCD.signal[i][0] = -2;
 	CCD.paint();
-	window.setTimeout(shiftOver(CCD,n+1),1000);
+	window.setTimeout(function(){
+		shiftOver(CCD,n+1);
+	},5);
 } // end shiftOver
