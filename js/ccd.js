@@ -28,55 +28,59 @@ function ccd(nRows,nCols){
 	for( i = 0 ; i < nRows ; i++ )
 		this.noise[i] = Array(nCols);
 
+	// D2H
+	//		Converts # between 0 - 15 to a hex 0 - f
+	this.d2h = d2h;
+	function d2h(n){
+		if( n < 10 ) return n.toString();
+		if( n == 10 ) return 'a';
+		if( n == 11 ) return 'b';
+		if( n == 12 ) return 'c';
+		if( n == 13 ) return 'd';
+		if( n == 14 ) return 'e';
+		return 'f';
+	} // end d2h
+
+	//  D2HH
+	//    Coverts # between 0 - 255 to a hex pattern, 00 - ff
+	this.d2hh = d2hh;
+	function d2hh(n){
+		if( n > 255 ) n = 255;
+		n1 = n%16;
+		n2 = Math.floor(n/16);
+		return this.d2h(n2) + this.d2h(n1);
+	} // end d2hh
+
+	//  PAINT
+	//    Given an 2D array of integers, paints the ccd display
+	//  squares (greyscale)
+	this.paint = paint;
+	function paint(){
+		CCD = this;
+		$('.pixel').each( function(){
+			i = $(this).attr('i');
+			j = $(this).attr('j');
+			if( CCD.signal[i][j] == -1 )
+				color = "#ff0000";
+			else if( CCD.signal[i][j] == -2 )
+				color = "steelblue";
+			else {
+				color = CCD.d2hh(CCD.signal[i][j] + CCD.noise[i][j]);
+				color = "#"+color+color+color;
+			}
+			$(this).css('fill',color);
+		}); // end pixel ea. fcn
+	} // end pain
+
 	this.addNoise = addNoise;
 	function addNoise(n){
 		for( i = 0 ; i < this.nRows ; i++ )
 			for( j = 0 ; j < this.nCols ; j++ )
 				this.noise[i][j] = Math.floor(Math.random()*n*25.6);
-		paint(this);
-	}
+		this.paint();
+	} // and add noise
 
-} 
-
-//	D2H
-//		Converts number between 0 - 15 to hex character
-function d2h(n){
-	if( n < 10 ) return n.toString();
-	if( n == 10 ) return 'a';
-	if( n == 11 ) return 'b';
-	if( n == 12 ) return 'c';
-	if( n == 13 ) return 'd';
-	if( n == 14 ) return 'e';
-	return 'f';
-}// end d2h
-
-//	D2HH
-//		Coverts # between 0 - 255 to a hex pattern, 00 - ff
-function d2hh(n){
-	if( n > 255 ) n = 255;
-	n1 = n%16;
-	n2 = Math.floor(n/16);
-	return d2h(n2) + d2h(n1);
-}
-
-//	PAINT
-//		Given an 2D array of integers, paints the ccd display
-//	squares (greyscale)
-function paint(CCD){
-	$('.pixel').each( function(){
-		i = $(this).attr('i');
-		j = $(this).attr('j');
-		if( CCD.signal[i][j] == -1 )
-			color = "#ff0000";
-		else if( CCD.signal[i][j] == -2 )
-			color = "steelblue";
-		else {
-			color = d2hh(CCD.signal[i][j] + CCD.noise[i][j]);
-			color = "#"+color+color+color;
-		}
-		$(this).css('fill',color);
-	});
-}
+} // end ccd
 
 //	UNIFORM
 //		Fills CCD array with 1 # value
@@ -121,7 +125,7 @@ function initialize_ccd(CCD,ext){
 	$('#reset').click( function(evt){
 		evt.preventDefault();
 		uniform(CCD,0);
-		paint(CCD);
+		CCD.paint();
 	});
 
 	$('#shift').click(function(evt){
@@ -148,7 +152,7 @@ function initialize_ccd(CCD,ext){
 			addStar(CCD,i,j);
 		else 
 			CCD.signal[i][j] = -1;
-		paint(CCD);
+		CCD.paint();
 	});
 
 	// Make extended source
@@ -161,7 +165,7 @@ function initialize_ccd(CCD,ext){
 		addStar(CCD,im-3,jm);
 		addStar(CCD,im+3,jm);
 	
-		paint(CCD);
+		CCD.paint();
 	} // end ext if
 
 } // end ccd
@@ -176,7 +180,7 @@ function shiftDown(CCD){
 			}
 	for(j = 0 ; j < CCD.nCols ; j++ )
 		CCD.signal[0][j] = -2;
-	paint(CCD);
+	CCD.paint();
 }// end readOut
 
 function shiftOver(CCD,n){
@@ -190,6 +194,6 @@ function shiftOver(CCD,n){
 		}
 	if( CCD.signal[i][0] != -1 )
 		CCD.signal[i][0] = -2;
-	paint(CCD,100);
+	CCD.paint();
 	window.setTimeout(shiftOver(CCD,n+1),1000);
 } // end shiftOver
