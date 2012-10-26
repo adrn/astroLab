@@ -47,6 +47,6 @@
 					. " i=\"$i\" j=\"$j\" />\n";
 			}
 		}// end i for
-		echo "\t</svg\n";
+		echo "\t</svg>\n";
 	} // end ccd fcn
 ?>

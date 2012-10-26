@@ -6,8 +6,8 @@
 
 	<div class="rightCol">
 
+		<a href="" class="button" id="reset">RESET</a>
 		<ul class="controls">
-			<li><a href="" id="black">RESET</a></li>
 			<li><a href="" id="point">Point Source</a></li>
 			<li><a href="" id="overexp">Overexposed</a></li>
 			<li><a href="" id="noise">White Noise</a></li>

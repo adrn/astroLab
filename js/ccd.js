@@ -16,6 +16,8 @@ function ccd(nRows,nCols){
 	this.nRows = nRows;
 	this.nCols = nCols;
 
+	this.breaking = false;
+
 	// initialize signal array
   this.signal = new Array(nRows);
 	for( i = 0 ; i < nRows ; i++ )
@@ -64,8 +66,14 @@ function paint(CCD){
 	$('.pixel').each( function(){
 		i = $(this).attr('i');
 		j = $(this).attr('j');
-		color = d2hh(CCD.signal[i][j] + CCD.noise[i][j]);
-		color = "#"+color+color+color;
+		if( CCD.signal[i][j] == -1 )
+			color = "#ff0000";
+		else if( CCD.signal[i][j] == -2 )
+			color = "steelblue";
+		else {
+			color = d2hh(CCD.signal[i][j] + CCD.noise[i][j]);
+			color = "#"+color+color+color;
+		}
 		$(this).css('fill',color);
 	});
 }
@@ -99,6 +107,28 @@ function initialize_ccd(CCD,ext){
 
 	var im = Math.floor(CCD.nRows/2),jm=Math.floor(CCD.nCols/2);
 
+	$('.break a').click( function(evt){
+		evt.preventDefault();
+		$('.break a').removeClass('current');
+		$(this).addClass('current');
+		id = $(this).attr('id');
+		if( id == "break" )
+			CCD.breaking = true;
+		else
+			CCD.breaking = false;
+	}); // end break click fcn
+
+	$('#reset').click( function(evt){
+		evt.preventDefault();
+		uniform(CCD,0);
+		paint(CCD);
+	});
+
+	$('#shift').click(function(evt){
+		evt.preventDefault();
+		shiftDown(CCD);
+	});
+
 	$('.controls a').click( function(evt){
 
 		evt.preventDefault();
@@ -109,42 +139,15 @@ function initialize_ccd(CCD,ext){
 		id = $(this).attr('id');
 		$('#'+ id + '_par').fadeIn(500);
 
-		// Update CCD array by case ...
-		if( id == "noise" ){	
-			for( i = 0 ; i < CCD.nRows ; i++ )
-				for( j = 0 ; j < CCD.nCols ; j++ ){
-					CCD.noise[i][j] = Math.floor(Math.random()*256);
-					CCD.signal[i][j] = 0.0;
-				}
-		} else if( id == "star" ){
-			uniform(CCD,0);
-			addStar(CCD,im,jm);
-			addStar(CCD,im,jm);
-		} else if( id == "extended" ){
-			uniform(CCD,0);
-			addStar(CCD,im,jm);
-			addStar(CCD,im+1,jm);
-			addStar(CCD,im-1,jm);
-			addStar(CCD,im-2,jm);
-			addStar(CCD,im-3,jm);
-			addStar(CCD,im+3,jm);
-		} else if( id == "white" ){
-			uniform(CCD,255);
-		} else if( id == "black" ){
-			uniform(CCD,0);
-		} // end case if/else
-
-		// update display
-		paint(CCD);
-
 	}); // end controls click fcn
 
-
-	// Produce a star upon clicking ...
 	$('.pixel').click( function(){
-		i = parseInt($(this).attr('i'));
-		j = parseInt($(this).attr('j'));
-		addStar(CCD,i,j);
+			i = parseInt($(this).attr('i'));
+			j = parseInt($(this).attr('j'));
+		if(!CCD.breaking) // Produce a star upon clicking ...
+			addStar(CCD,i,j);
+		else 
+			CCD.signal[i][j] = -1;
 		paint(CCD);
 	});
 
@@ -162,3 +165,31 @@ function initialize_ccd(CCD,ext){
 	} // end ext if
 
 } // end ccd
+
+function shiftDown(CCD){
+	shiftOver(CCD,0);
+	for(i = CCD.nRows - 1; i > 0 ; i-- )
+		for(j = 0 ; j < CCD.nCols ; j++ )
+			if( CCD.signal[i][j] != -1 ){
+				CCD.signal[i][j] = CCD.signal[i-1][j];
+				CCD.noise[i][j] = CCD.noise[i-1][j];
+			}
+	for(j = 0 ; j < CCD.nCols ; j++ )
+		CCD.signal[0][j] = -2;
+	paint(CCD);
+}// end readOut
+
+function shiftOver(CCD,n){
+	var i = CCD.nRows - 1;
+	if( n == CCD.nCols )
+		return;
+	for( j = CCD.nCols - 1 ; j > 0 ; j-- )
+		if( CCD.signal[i][j] != -1 ) {
+			CCD.signal[i][j] = CCD.signal[i][j-1];
+			CCD.noise[i][j] = CCD.noise[i][j-1];
+		}
+	if( CCD.signal[i][0] != -1 )
+		CCD.signal[i][0] = -2;
+	paint(CCD,100);
+	window.setTimeout(shiftOver(CCD,n+1),1000);
+} // end shiftOver

@@ -88,11 +88,13 @@ p.copyright {
 	margin-left: 50px;
 }
 
-.controls {
+.controls .break {
 	margin: 0 0 20px 0;
 }
 
-.controls a {
+.controls a,
+.break a,
+a.button {
 	font: 14px/100% helvetica, arial, sans-serif;
 	font-weight: bold;
 	text-decoration: none;
@@ -105,13 +107,25 @@ p.copyright {
 	text-align: center;
 }
 
-.controls a:hover {
+.controls a:hover,
+.break a:hover,
+a.button:hover {
 	background: steelblue;
 	color: #fff;
 }
 
+.break a {
+	font-size: 12px;
+	width: 85px;
+	float: left;
+	margin-right: 5px;
+	zoom: 1;
+}
+
 .controls a.current,
-.controls a.current:hover {
+.controls a.current:hover,
+.break a.current,
+.break a.current:hover {
 	background: #222;
 	color: #fff;
 	border-color: #222;
