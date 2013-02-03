@@ -190,3 +190,33 @@ br {
 	max-height: 400px;
 	overflow: auto;
 }
+
+.frost-pane {
+    width: 500px;
+    margin: 50px 0 0 50px;
+    padding: 10px;
+    background: rgba(255,255,255,.8);
+}
+
+.wrapper h1 {
+    margin-top: 0;
+    border-color: #444;
+}
+
+a.next {
+    color: steelblue;
+    border: 1px solid steelblue;
+    font: 20px/100% helvetica, arial, sans-serif;
+    padding: 5px;
+    display: block;
+    zoom: 1;
+    float: right;
+    margin: 30px 20px 0 0 ;
+    background: #fff;
+    text-decoration: none;
+}
+
+a.next:hover {
+    background: steelblue;
+    color: #fff;
+}

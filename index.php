@@ -6,7 +6,7 @@
 	<p class="intro"> 
 This online tutorial will walk you some of the basic and important properties of CCD.  For each webpage, read all the information and then answer the questions in your lab notebooks.</p>
 
-		<a href="http://www.astro.columbia.edu/~msalem/ccd/photon" class="next">&raquo; Continue</a>
+		<a href="photon" class="next">&raquo; Continue</a>
 		<br />
 </div>
 	<style>

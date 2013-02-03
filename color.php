@@ -8,34 +8,33 @@
 		<div class="scroll-holder">
 		<div class="scroll-pane">
 			<div class="explanation">
-				<p> So far, all we've talked about is a nondescript photon hitting 
-						the CCD.  Everyone we've mentioned works for visible light of 
-						any color.  So how do we take color images?</p>
 
-				<p>	In the next section of the lab, we'll talk about how astronomers 
-						get color information about the universe using filters.  However, 
-						for some CCDs, like the ones in your digital cameras and phones, 
-						are designed to automatically receive color information with built 
-						in filters.</p>
+				<p>	In this section we will learn about how astronomers get color 
+				        information about the universe using filters. Filters do exactly
+				        what you would expect: they filter out all light that is not within
+				        a specific wavelength range. For example, a Blue filter will block
+				        out all light that is not blue, or, all light that is not around
+				        450 nm. Astronomical CCDs are generally sensitive to a very wide 
+				        range of wavelengths, so if we want to construct a color image we
+				        have to take three separate images -- one with a Red filter, one with 
+				        a Green filter, and one with a Blue filter. </p>
+                
+                <p> Digital cameras work slightly differently: you don't have to take three
+                        images every time you want a color image, so how do they work? These
+                        CCDs typically have a <b>filter pattern</b> -- namely, each tiny pixel
+                        has its own filter, the color of which is decided by an alternating 
+                        pattern seen in the grid on the left. The blue pixels only record 
+                        a count if a blue photon hits it, and the same for red and green cells. 
+                        This means that when you take a picture, your camera has to do some 
+                        extra work to combine these three slightly offset images into a single 
+                        color image.</p>
 
-				<p>	For these cameras, each pixel of the CCD only counts photons if 
-						they're the correct color.  Generally, this is split into red, 
-						green and blue light.  Then, after reading out the information, 
-						the camera creates a color image by summing the information about 
-						the amount of each color of light there was at each pixel.  So 
-						really your color image is the sum of three separate images.</p>
+				<p>	A typical filter mosaic scheme is shown on the left. <b><i>Question</i>: What
+				        implications would this have on taking an image of a star? Can you think of
+				        a trick we can do with the camera lens to alleviate this issue?</b>
+				
+				</p>
 
-				<p>	The general mosaic scheme for the different color images is displayed 
-						on this page.</p>
-
-				<p>	Each photon that comes in registers a count on one of the pixels. 
-						However, stars, which are considered single points of light, occupy 
-						more than one pixel on the CCD.</p>	
-
-				<h2>Questions</h2>
-				<p><strong>1</strong> Is it a problem that only one fourth of your 
-					everyday camera detects red light? Why or why not? What about if we 
-					used this method of assigning colors to each pixel in astronomy?</p>
 			</div>
 		</div></div>
 	</div>

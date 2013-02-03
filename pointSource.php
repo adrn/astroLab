@@ -7,45 +7,49 @@
 		<div class="scroll-holder">
 		<div class="scroll-pane">
 			<div class="explanation">
-				<p>	Each photon that comes in registers a count on one of the pixels. 
-						However, stars, which are considered single points of light, occupy 
-						more than one pixel on the CCD.</p>
-	
-				<p>	Click on a pixel in the center of the CCD.  This spreading of the light 
-						is an inherent property of telescopes. Since we can't remove it, astronomers 
-						try to model this spread.</p>
+				<p>	We know that stars are very large: the Sun could fit over a million Earths 
+				        inside by volume! If you look at the Sun in the sky it has some size, but
+				        any other star we can see in the night sky looks like a tiny pinprick of
+				        light. That's because the distances to these other stars is so much greater
+				        that we just perceive the light as coming from a single point. </p>
+	            
+	            <p> Each photon that hits a CCD registers a count on a single pixel. So why then do
+	                    images of stars look like the light is smeared out over multiple pixels? This
+	                    is due to a combination of two effects: <b>diffraction</b> and <b>atmospheric
+	                    blurring</b>. We're not going to talk about diffraction, but it is an unavoidable
+	                    effect inherent to all telescopes. Atmospheric distortion, however, is easy to 
+	                    understand: photons coming from outside of the Earth's atmosphere interact with 
+	                    the air above us and get slightly deflected, causing the stars to look slightly 
+	                    blurred. <b><i>Question:</i> Why do you think astronomers put telescopes in 
+	                    space?</b></p>
+	            
+	            <p> Click on a pixel on the simulated CCD to the left. This is what a typical image of
+	                    a star will look like. </p>
 	
 				<h2>Over Exposed</h2>
 				<p>	Click on the same pixel a few more times.  You can see that the photons 
 						are now beginning to spill over into surrounding pixels, more than just 
-						the original spread of the star.  You now have an overexposure.  You're 
-						removing the natural shape of the star and instead spreading out the light 
-						even more.</p>
+						the original spread of the star.  You now have an overexposed source. For very
+						bright stars, we can mediate this effect by taking shorter exposures (decrease 
+						the exposure time), but then we can't see the faint objects. Finding a balance
+						between overexposing the bright sources and underexposing the faint sources is
+						a constant challenge for astronomers.</p>
 	
 				<h2>White Noise</h2>
-				<p>	Sadly, no measuring device is absolutely perfect.  For CCDs, the main source 
-						of error from your device is white noise.  The source of the noise is the fact 
-						that sometimes, a pixel can add to its count without a photon ever hitting it.
-						Even worse is that this happens randomly.  The array to right shows you what 
-						random noise on your pixels looks like.  Clearly, this is bad because we relate 
-						the number of counts to brightness.  If the pixels are counting imaginary photons, 
-						our source will then be calculated to be a little too bright.</p>
-
-				<p>	Noise can range from slightly bad to terribly bad.  Click on the array at the right 
-						to add a few point sources.  Then using the slide bar, change the noise level of 
-						your image.</p>
+				<p>	No electronic instrument is perfect -- they all produce some noise. Think of your 
+				        stereo: even if no music is playing, if you turn up the volume too loud the 
+				        speakers start to hiss. For CCDs, the main source of error from your device 
+				        is called <b>white noise</b> (or <b>read noise</b>). The source of the noise 
+				        is random motions of electrons in the detector that sometimes cause counts in
+				        the pixels without a photon ever hitting it. Use the <b>Add White Noise</b> slider
+				        to add noise of varying intensities to the simulated CCD. You can see that if there
+				        is too much noise, our source will be washed out and we won't be able to detect it.</p>
 
 				<h2>Questions</h2>
-				<p><strong>1</strong> Astronomers always try to have their sources in the center of 
-					the CCD.  Why is this better than having them closer to the edge?</p>
 
-				<p><strong>2</strong> Reset the page and click on two pixels that are 2 spaces apart.  
-					What happens when these two different sources are so close to each other on the CCD? 
-					With this in mind, if you wanted to resolve two stars that were close to each other, 
-					how high would you want your resolution to be?</p>
-
-				<p><strong>3</strong> Is one way to combat the noise problem just to integrate longer? 
-					Explain why or why not.</p>
+				<p>Reset the page and click on two pixels that are 2 spaces apart.  
+					<b>What happens when these two different sources are close to each other on the CCD? 
+					With this in mind, can you think of a way to get around this issue?<b></p>
 
 			</div>
 		</div></div>
