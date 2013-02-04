@@ -13,9 +13,9 @@
 				        information about the universe using filters. Filters do exactly
 				        what you would expect: they filter out all light that is not within
 				        a specific wavelength range. For example, a Blue filter will block
-				        out all light that is not blue, or, all light that is not around
-				        450 nm. Astronomical CCDs are generally sensitive to a very wide 
-				        range of wavelengths, so if we want to construct a color image we
+				        out all light that is not blue, or, all light with a wavelength that is
+				        not close to 450 nm. Astronomical CCDs are generally sensitive to a very 
+                        wide range of wavelengths, so if we want to construct a color image we
 				        have to take three separate images -- one with a Red filter, one with 
 				        a Green filter, and one with a Blue filter. </p>
                 
