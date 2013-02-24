@@ -16,12 +16,15 @@
 	            <p> Each photon that hits a CCD registers a count on a single pixel. So why then do
 	                    images of stars look like the light is smeared out over multiple pixels? This
 	                    is due to a combination of two effects: <b>diffraction</b> and <b>atmospheric
-	                    blurring</b>. We're not going to talk about diffraction, but it is an unavoidable
+	                    blurring</b>. 
+			    <b><i>Question:</i> Why is it better to have a space telescope vs. a ground 
+			    	based telescope?</b></p>
+			    
+		    <p> We're not going to talk about diffraction, but it is an unavoidable
 	                    effect inherent to all telescopes. Atmospheric distortion, however, is easy to 
 	                    understand: photons coming from outside of the Earth's atmosphere interact with 
 	                    the air above us and get slightly deflected, causing the stars to look slightly 
-	                    blurred. <b><i>Question:</i> Why do you think astronomers put telescopes in 
-	                    space?</b></p>
+	                    blurred. </p>
 	            
 	            <p> Click on a pixel on the simulated CCD to the left. This is what a typical image of
 	                    a star will look like. </p>
@@ -43,13 +46,12 @@
 				        is random motions of electrons in the detector that sometimes cause counts in
 				        the pixels without a photon ever hitting it. Use the <b>Add White Noise</b> slider
 				        to add noise of varying intensities to the simulated CCD. You can see that if there
-				        is too much noise, our source will be washed out and we won't be able to detect it.</p>
+				        is too much noise, our source will be washed out and we won't be able to detect it. For the same reason, if you take a picture at night or in a dark bar, it will often appear grainy or noisy.</p>
 
 				<h2>Questions</h2>
 
 				<p>Reset the page and click on two pixels that are 2 spaces apart.  
-					<b>What happens when these two different sources are close to each other on the CCD? 
-					With this in mind, can you think of a way to get around this issue?<b></p>
+					<b>What happens when these two different sources are close to each other on the CCD? Can you think of a way to get around this issue (e.g., should we change something about the pixels)?<b></p>
 
 			</div>
 		</div></div>

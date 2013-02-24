@@ -68,7 +68,7 @@
 		#controls {
 		    width: 512px;
 		    text-align: center;
-		    font-size: 10pt;
+		    font-size: 14pt;
 		}
 		
 		#controls a {

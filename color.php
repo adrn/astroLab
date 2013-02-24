@@ -21,7 +21,7 @@
                 
                 <p> Digital cameras work slightly differently: you don't have to take three
                         images every time you want a color image, so how do they work? These
-                        CCDs typically have a <b>filter pattern</b> -- namely, each tiny pixel
+                        CCDs typically have a <b>filter pattern</b> -- that is, each tiny pixel
                         has its own filter, the color of which is decided by an alternating 
                         pattern seen in the grid on the left. The blue pixels only record 
                         a count if a blue photon hits it, and the same for red and green cells. 
@@ -31,7 +31,7 @@
 
 				<p>	A typical filter mosaic scheme is shown on the left. <b><i>Question</i>: What
 				        implications would this have on taking an image of a star? Can you think of
-				        a trick we can do with the camera lens to alleviate this issue?</b>
+				        a trick we can do with the camera lens or telescope to alleviate this issue?</b>
 				
 				</p>
 

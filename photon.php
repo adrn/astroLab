@@ -11,7 +11,7 @@
 			<div class="explanation">
 
 				<p> A CCD is essentially an array of tiny light collectors called 
-				        <b>pixels</b>. You can think of them like a bunch of 
+				        <b>pixels</b>. You can think of them as a bunch of 
 				        little buckets -- when a camera shutter opens, each pixel
 				        starts collecting photons. When the shutter closes after
 				        some amount of time (the <b>exposure time</b>), we can
@@ -26,14 +26,14 @@
 				        <b><i>Question:</i>How does increasing the number of pixels
 				        affect the quality or <u>resolution</u> of the image?</b></p>
     
-				<p> Click on the pixels of your screen to shoot a photon at that
-				        pixel. You can click the same cell multiple times. After
-				        you have done this for several of the pixels, click Image
+				<p> Click on the pixels on the simulated CCD to the left to shoot a photon at
+				        a pixel. You can click the same cell multiple times. After
+				        you have done this for several of the pixels, click <b>Image</b>
 				        to render it into an image.</p>
 
-				<p><b><i>Question:</i> When looking at the sky, do you expect 
-					most of your pixels to have counts or not? What about when 
-					you take a picture of your friends? What's the difference?</b></p> 
+				<p><b><i>Question:</i> When imaging the sky, do you expect 
+					most of your pixels to have counts or not? What if you took a  
+					picture in this room? What's the difference?</b></p> 
 			</div>
 		</div>
 		</div>
